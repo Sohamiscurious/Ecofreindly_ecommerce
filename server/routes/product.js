@@ -11,7 +11,6 @@ const router = require("express").Router();
 
 router.post("/", verifyTokenAndAdmin, async (req, res) => {
   const newProduct = new Product(req.body);
-
   try {
     const savedProduct = await newProduct.save();
     res.status(200).json(savedProduct);
@@ -58,13 +57,16 @@ router.get("/find/:id", async (req, res) => {
 
 //GET ALL PRODUCTS
 router.get("/", async (req, res) => {
-  const qNew = req.query.new;
+  const qNew = true;
   const qCategory = req.query.category;
+
+  console.log(qNew, qCategory);
+
   try {
     let products;
 
     if (qNew) {
-      products = await Product.find().sort({ createdAt: -1 }).limit(1);
+      products = await Product.find().limit(20);
     } else if (qCategory) {
       products = await Product.find({
         categories: {

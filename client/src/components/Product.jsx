@@ -66,15 +66,12 @@ const Product = ({ item }) => {
   return (
     <Container>
       <Circle />
-      <Image src={item.img} />
+      <Image src={item.product_image} />
       <Info>
         <Icon>
           <Link to={`/product/${item._id}`}>
             <i class="fa-solid fa-cart-shopping"></i>
           </Link>
-        </Icon>
-        <Icon>
-          <i class="fa-solid fa-magnifying-glass"></i>
         </Icon>
         <Icon>
           <i class="fa-regular fa-heart"></i>
