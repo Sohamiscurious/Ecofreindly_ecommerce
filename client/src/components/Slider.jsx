@@ -79,12 +79,19 @@ const Description = styled.p`
   color: white;
 `;
 const Button = styled.button`
-  padding: 10px;
-  font-size: 20px;
-  border-color: transparent;
+ 
   cursor: pointer;
-  background-color: black;
-  color: white;
+  background-color:#7c573c;
+    padding: 1rem 3rem;
+    border: 0.2rem solid rgba(225, 255, 255,0.286);
+    font-size: 1.3rem;
+    color: white;
+    font-weight:bold;
+    letter-spacing: 0.1rem;
+    border-radius: 4rem;
+    &:hover {
+      background: radial-gradient(at bottom right,#5a4740,#2c1e1e);
+    };
 `;
 
 const Slider = () => {

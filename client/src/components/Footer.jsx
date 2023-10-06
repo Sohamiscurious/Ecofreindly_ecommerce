@@ -100,11 +100,8 @@ const Footer = () => {
     <Container>
       <Left>
         <Logo src="bird.png"></Logo>
-        <Description>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod
-          praesentium adipisci quos necessitatibus rerum hic maiores excepturi
-          sapiente, delectus cumque esse vitae quis, asperiores quisquam vel
-          facere tenetur ex! Necessitatibus.
+        <Description class="text-center">
+        Ultimately, it is our collective responsibility to prioritize eco-friendly practices in all aspects of our lives, from our daily habits to our consumer choices and policy decisions. By doing so, we can work together to protect the planet and ensure a brighter and more sustainable future for all.
         </Description>
         <SocialContainer>
           <SocialIcon>

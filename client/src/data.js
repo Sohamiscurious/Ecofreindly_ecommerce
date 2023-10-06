@@ -2,22 +2,21 @@ export const sliderItems=[
     {
         id:1,
         img:"homepage.png",
-        title:"SUMMER SALE",
-        desc: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sed dicta repellat autem officiis cum modi cupiditate, numquam beatae non ipsam, repellendus sapiente quae placeat ut suscipit dolore doloremque repudiandae voluptas?",
-        bg:"f5fafd",
+        title:"Zero-Waste Packaging",
+        desc: "We've eliminated single-use plastics and excessive packaging from our products. Our innovative, eco-friendly packaging solutions are designed to minimize waste and are either recyclable, biodegradable, or reusable, aligning with our mission to reduce the carbon footprint."
     },
     {
         id:2,
         img:"homepage2.png",
-        title:"WINTER SALE",
-        desc: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sed dicta repellat autem officiis cum modi cupiditate, numquam beatae non ipsam, repellendus sapiente quae placeat ut suscipit dolore doloremque repudiandae voluptas?",
+        title:"Environmental Education",
+        desc: "We're not just a product company; we're also an educational resource. Through our website, blog, and social media, we provide valuable information and tips on sustainable living. We aim to empower our customers with knowledge to make eco-conscious choices beyond our products.",
         bg:"fcf1ed",
     },
     {
         id:3,
         img:"homepage3.png",
-        title:"AUTUMN SALE",
-        desc: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sed dicta repellat autem officiis cum modi cupiditate, numquam beatae non ipsam, repellendus sapiente quae placeat ut suscipit dolore doloremque repudiandae voluptas?",
+        title:"Sustainable Sourcing",
+        desc: "We prioritize sourcing materials and ingredients from eco-conscious suppliers and local artisans who adhere to sustainable practices. Our commitment to responsible sourcing ensures that our products have a minimal environmental impact and support communities.",
         bg:"f5fafd",
     }
 ]
