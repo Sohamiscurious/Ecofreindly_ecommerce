@@ -30,15 +30,39 @@ const Products = ({ cat, filters, sort }) => {
   }, [cat]);
 
   useEffect(() => {
-    cat &&
+    if (cat) {
       setFilteredProducts(
-        products.filter((item) =>
-          Object.entries(filters).every(([key, value]) =>
-            item[key].includes(value)
-          )
-        )
+        products.filter((item) => {
+          // const carbonFilter = filters.carbon_footprint_score;
+          // const biodegradableFilter = filters.biodegradable_score;
+
+          // // Carbon Footprint Score filtering
+          // if (
+          //   (carbonFilter === "Average" && item.carbon_footprint_score < 40) ||
+          //   (carbonFilter === "Good" && item.carbon_footprint_score < 60) ||
+          //   (carbonFilter === "Best" && item.carbon_footprint_score < 90)
+          // ) {
+          //   return true;
+          // }
+
+          // // Biodegradable Score filtering
+          // if (
+          //   (biodegradableFilter === "Highly Biodegradable" && item.biodegradable_score < 40) ||
+          //   (biodegradableFilter === "Semi-Biodegradable" && item.biodegradable_score < 60) ||
+          //   (biodegradableFilter === "Biodegradable" && item.biodegradable_score < 60) ||
+          //   (biodegradableFilter === "Highly Biodegradable" && item.biodegradable_score < 90)
+          // ) {
+          //   return true;
+          // }
+
+          // // If no filters match, exclude the item
+          // return false;
+          return true;
+        })
       );
+    }
   }, [products, cat, filters]);
+
 
   useEffect(() => {
     if (sort === "newest") {
