@@ -72,6 +72,7 @@ const AddContainer = styled.div`
     align-items: center;
     width: 50%;
     justify-content: space-between;
+    margin-top: 150px;
     ${mobile({ width: "100%" })}
 `;
 const AmountContainer = styled.div`
@@ -103,6 +104,34 @@ const Button = styled.button`
     }
 `;
 
+const Certifications = styled.div`
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-left: 50px;
+`;
+
+const Certification = styled.div`
+  background-color: #f2f2f2;
+  border-radius: 5px;
+  padding: 5px 10px;
+  margin-right: 10px;
+  margin-bottom: 5px;
+  font-weight: 300;
+ 
+`;
+const Score = styled.div`
+  background-color: #f2f2f2;
+  border-radius: 5px;
+  padding: 5px 10px;
+  margin-right: 10px;
+  margin-bottom: 5px;
+  font-weight: 300;
+ 
+`;
+
+
 const Product = () => {
   const location = useLocation();
   const id = location.search.split("=")[1];
@@ -125,14 +154,14 @@ const Product = () => {
     <Container>
       <Wrapper>
         <ImageContainer>
-          <Image src="denimJumpSuit.webp" />
+          <Image src={product.product_image} />
         </ImageContainer>
         <InfoContainer>
           <Title>{product.product_name}</Title>
           <Description>
             {product.product_description}
           </Description>
-          <Price>$20</Price>
+          <Price>{product.price}</Price>
           <FilterContainer>
             <Filter>
               <FilterTitle>Color</FilterTitle>
@@ -151,8 +180,25 @@ const Product = () => {
                 <FilterSizeOption>XS</FilterSizeOption>
               </FilterSize>
             </Filter>
+
+
           </FilterContainer>
           <AddContainer>
+
+            <Certifications>
+              <Certification>Certifications:</Certification>
+              {product.certifications && product.certifications.map((certification, index) => (
+                <Certification key={index}>{certification}</Certification>
+              ))}
+
+            </Certifications>
+            <Score>
+              <FilterTitle>Carbon footprint score: </FilterTitle>
+              {product.carbon_footprint_score}
+            </Score>
+          </AddContainer>
+          <AddContainer>
+
             <AmountContainer>
               <i className="fa-solid fa-minus"></i>
               <Amount>1</Amount>
