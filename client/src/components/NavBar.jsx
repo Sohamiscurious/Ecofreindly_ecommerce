@@ -6,7 +6,7 @@ const NavBar = () => {
     }
     return (
         <> 
-            <nav className="navbar navbar-expand-lg navbar-light bg-light">
+            <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
                 <div className="container-fluid">
                 <img className='logo' src="bird.png"/>
                     <a className="navbar-brand" href="/">EcoNest Creations</a>
