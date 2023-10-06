@@ -8,7 +8,7 @@ const Wrapper = styled.div`
 `;
 
 const Title = styled.h1`
-  font-weight: 300;
+  font-weight: 1000;
   text-align: center;
 `;
 
@@ -25,7 +25,7 @@ const TopButton = styled.button`
   cursor: pointer;
   border: ${(props) => props.type === "filled" && "none"};
   background-color: ${(props) =>
-    props.type === "filled" ? "black" : "transparent"};
+    props.type === "filled" ? "black" : "white"};
   color: ${(props) => props.type === "filled" && "white"};
 `;
 
@@ -34,6 +34,7 @@ const TopText = styled.span`
   text-decoration: underline;
   cursor: pointer;
   margin: 0px 10px;
+  font-weight: 800;
 `;
 
 const Bottom = styled.div`
@@ -142,9 +143,17 @@ const Button = styled.button`
 `;
 
 const Cart = () => {
+  const backgroundStyle = {
+    backgroundImage: 'url("tile.png")', // URL of your tile.png image
+    
+    backgroundRepeat: 'repeat', // Repeat the background image to create a tiled effect
+    // Additional background styles can be added here
+    backgroundSize: '80px',
+  };
   return (
     <Container>
       <Wrapper>
+        <div className="background-image" style={backgroundStyle}>
         <Title>YOUR BAG</Title>
         <Top>
           <TopButton>CONTINUE SHOPPING</TopButton>
@@ -154,6 +163,7 @@ const Cart = () => {
           </TopTexts>
           <TopButton type="filled">CHECKOUT NOW</TopButton>
         </Top>
+        </div>
         <Bottom>
           <Info>
             <Product>
