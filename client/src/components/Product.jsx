@@ -34,6 +34,17 @@ const Container = styled.div`
   &:hover ${Info} {
     opacity: 1;
   }
+  @media (max-width: 1000px) {
+     /* Change the height property to 'auto' on smaller screens */
+    flex-basis: calc(30% - 10px); /* Example: Two columns on screens <= 768px */
+    /* You can adjust the flex-basis value to control the number of columns */
+  @media (max-width: 800px) {
+     /* Change the height property to 'auto' on smaller screens */
+    flex-basis: calc(80% - 10px); /* Example: Two columns on screens <= 768px */
+    /* You can adjust the flex-basis value to control the number of columns */
+
+    }
+  }
 `;
 
 const Circle = styled.div`
