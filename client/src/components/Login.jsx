@@ -57,7 +57,7 @@ const Login = () => {
         <Loader />
       ) : (
         <div
-          className="min-h-screen flex items-center justify-center bg-gradient-to-r from-green-400 via-purple-500"
+          className="min-h-screen flex items-center justify-center bg-gradient-to-r from-green-500 via-teal-400"
         >
           <div className="bg-white p-8 rounded-lg shadow-lg w-96">
             <h1 className="text-3xl font-semibold text-center mb-4">Login</h1>

@@ -49,7 +49,7 @@ const Register = () => {
 
   return (
     <div
-      className="min-h-screen flex items-center justify-center bg-gradient-to-r from-purple-400 via-pink-500 to-red-500"
+      className="min-h-screen flex items-center justify-center bg-gradient-to-r from-green-400 via-teal-500 to-blue-500"
     >
       <div className="bg-white p-8 rounded-lg shadow-lg w-96">
         <h1 className="text-3xl font-bold  font-sans text-center mb-4">Register</h1>
