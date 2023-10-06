@@ -1,24 +1,26 @@
 import React from 'react'
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Register from './components/Register';
-import Login from './components/Login';
-import NavBar from './components/NavBar';
-import PrivateComponent from './components/PrivateComponent'
-
-import ProductCards from './components/ProductCards';
+import Home from './pages/Home'
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+import NavBar from './components/NavBar'
+import './App.css'
+import ProductList from './pages/ProductList'
+import Product from './pages/Product'
+import Login from './pages/Login'
+import Register from './pages/Register'
+import Cart from './pages/Cart'
 
 const App = () => {
   return (
     <>
       <Router>
-        <NavBar />
+        <NavBar/>
         <Routes>
-          <Route element={<PrivateComponent />}>
-            <Route path="/logout" element={<h1>logout</h1>} />
-          </Route>
-
-          <Route path="/register" element={<Register />} />
-          <Route path="/login" element={<Login />} />
+          <Route path="/" element={<Home/>}/>
+          <Route path="/productList" element={<ProductList/>}/>
+          <Route path="/login" element={<Login/>}/>
+          <Route path="/register" element={<Register/>}/>
+          <Route path="/product" element={<Product/>}/>
+          <Route path="/cart" element={<Cart/>}/>
         </Routes>
       </Router>
     </>
