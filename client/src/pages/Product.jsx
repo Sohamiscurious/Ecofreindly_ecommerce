@@ -7,11 +7,17 @@ import NewsLetter from "../components/NewsLetter";
 import { mobile } from "../responsive";
 
 
-const Container = styled.div``;
+const Container = styled.div`
+  /* background-image: url('bg3.png');
+  background-repeat: no-repeat;
+  background-size: cover; */
+  background-color: peachpuff;
+`;
 const Wrapper = styled.div`
   padding: 50px;
   display: flex;
   ${mobile({ padding: "10px", flexDirection: "column" })}
+
 `;
 const ImageContainer = styled.div`
   flex: 1;
@@ -29,6 +35,7 @@ const InfoContainer = styled.div`
 `;
 const Title = styled.h1`
   font-weight: 200;
+  
 `;
 const Description = styled.p`
   margin: 20px 0px;
@@ -94,7 +101,8 @@ const Amount = styled.span`
 const Button = styled.button`
     padding: 15px;
     border: 2px solid teal;
-    background-color: white;
+    background-color: black;
+    color: white;
     cursor: pointer;
     font-weight: 500;
 

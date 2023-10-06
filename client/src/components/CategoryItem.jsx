@@ -37,7 +37,8 @@ const Button = styled.button`
   padding: 10px;
   font-weight: 1000;
   letter-spacing: 3px;
-  color: gray;
+  color: black;
+  
 `;
 
 const CategoryItem = ({ item }) => {
