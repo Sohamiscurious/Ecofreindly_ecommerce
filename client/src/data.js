@@ -1,21 +1,21 @@
 export const sliderItems=[
     {
         id:1,
-        img:"heroShop1.avif",
+        img:"homepage.png",
         title:"SUMMER SALE",
         desc: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sed dicta repellat autem officiis cum modi cupiditate, numquam beatae non ipsam, repellendus sapiente quae placeat ut suscipit dolore doloremque repudiandae voluptas?",
         bg:"f5fafd",
     },
     {
         id:2,
-        img:"heroShop2.jpg",
+        img:"homepage2.png",
         title:"WINTER SALE",
         desc: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sed dicta repellat autem officiis cum modi cupiditate, numquam beatae non ipsam, repellendus sapiente quae placeat ut suscipit dolore doloremque repudiandae voluptas?",
         bg:"fcf1ed",
     },
     {
         id:3,
-        img:"heroShop3.avif",
+        img:"homepage3.png",
         title:"AUTUMN SALE",
         desc: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sed dicta repellat autem officiis cum modi cupiditate, numquam beatae non ipsam, repellendus sapiente quae placeat ut suscipit dolore doloremque repudiandae voluptas?",
         bg:"f5fafd",
@@ -30,12 +30,12 @@ export const CategoriesData = [
     },
     {
         id: 2,
-        img:"categoryImage2.jpg",
+        img:"category2.jpg",
         title:"T-SHIRTS"
     },
     {
         id: 3,
-        img:"categoryImage3.jpg",
+        img:"category3.jpg",
         title:"Pants"
     }
 ]
