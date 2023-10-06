@@ -27,19 +27,19 @@ export const CategoriesData = [
         id: 1,
         img:"categoryImage1.jpg",
         title:"SHIRTS",
-        cat:"women"
+        cat:"Tools"
     },
     {
         id: 2,
         img:"categoryImage2.jpg",
         title:"T-SHIRTS",
-        cat:"coat"
+        cat:"Soaps"
     },
     {
         id: 3,
         img:"categoryImage3.jpg",
         title:"Pants",
-        cat:"jeans"
+        cat:"Utensils"
     }
 ]
 

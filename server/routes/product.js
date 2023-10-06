@@ -66,7 +66,7 @@ router.get("/", async (req, res) => {
     let products;
 
     if (qNew) {
-      products = await Product.find().limit(20);
+      products = await Product.find({ category: qCategory }).limit(20);
     } else if (qCategory) {
       products = await Product.find({
         categories: {
