@@ -101,7 +101,7 @@ const Product = ({ item }) => {
       <Info>
         <IconContainer>
           <Icon>
-            <Link to={`/product/${item._id}`}>
+            <Link to={`/product/?id=${item._id}`}>
               <i className="fa-solid fa-cart-shopping"></i>
             </Link>
           </Icon>

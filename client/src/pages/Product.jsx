@@ -1,13 +1,17 @@
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 import { styled } from "styled-components";
-import NewsLetter from "../components/NewsLetter";
 import Footer from "../components/Footer";
+import NewsLetter from "../components/NewsLetter";
 import { mobile } from "../responsive";
+
 
 const Container = styled.div``;
 const Wrapper = styled.div`
   padding: 50px;
   display: flex;
-  ${mobile({ padding: "10px", flexDirection:"column" })}
+  ${mobile({ padding: "10px", flexDirection: "column" })}
 `;
 const ImageContainer = styled.div`
   flex: 1;
@@ -100,6 +104,23 @@ const Button = styled.button`
 `;
 
 const Product = () => {
+  const location = useLocation();
+  const id = location.search.split("=")[1];
+  const [product, setProduct] = useState([]);
+
+  useEffect(() => {
+    const getProducts = async () => {
+      try {
+        const res = await axios.get(
+          `http://localhost:5000/api/products/find/${id}`
+        );
+
+        console.log(res.data);
+        setProduct(res.data);
+      } catch (err) { }
+    };
+    getProducts();
+  }, [id]);
   return (
     <Container>
       <Wrapper>
@@ -107,14 +128,9 @@ const Product = () => {
           <Image src="denimJumpSuit.webp" />
         </ImageContainer>
         <InfoContainer>
-          <Title>Denim Hall</Title>
+          <Title>{product.product_name}</Title>
           <Description>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero
-            magnam optio voluptates harum porro totam, veniam impedit cupiditate
-            laudantium atque incidunt exercitationem vero ipsum voluptatum. Enim
-            eaque quis iusto ipsa delectus consequuntur fugit laborum numquam
-            eius commodi libero excepturi possimus quam, expedita obcaecati
-            accusamus, harum id, ratione quos rerum deleniti.
+            {product.product_description}
           </Description>
           <Price>$20</Price>
           <FilterContainer>
@@ -138,9 +154,9 @@ const Product = () => {
           </FilterContainer>
           <AddContainer>
             <AmountContainer>
-              <i class="fa-solid fa-minus"></i>
+              <i className="fa-solid fa-minus"></i>
               <Amount>1</Amount>
-              <i class="fa-solid fa-plus"></i>
+              <i className="fa-solid fa-plus"></i>
             </AmountContainer>
             <Button>ADD TO CART</Button>
           </AddContainer>
