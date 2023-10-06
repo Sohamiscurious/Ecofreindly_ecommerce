@@ -2,11 +2,12 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Loader from "./Loader";
 
+
 const Register = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [isloading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const navigate = useNavigate();
 
@@ -20,16 +21,13 @@ const Register = () => {
   const collectData = async () => {
     setIsLoading(true);
     try {
-      const result = await fetch(
-        "http://localhost:5000/api/auth/register",
-        {
-          method: "post",
-          body: JSON.stringify({ name, email, password }),
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
+      const result = await fetch("http://localhost:5000/api/auth/register", {
+        method: "post",
+        body: JSON.stringify({ name, email, password }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
 
       const data = await result.json();
 
@@ -43,53 +41,52 @@ const Register = () => {
         localStorage.setItem("user", JSON.stringify(data));
         navigate("/");
       }
-    } catch (error) { 
+    } catch (error) {
     } finally {
       setIsLoading(false);
     }
   };
 
   return (
-    <>
-      {isloading == true ? (
-        <Loader />
-      ) : (
-        <div className="registerContainer">
-          <div className="register">
-            <h1>REGISTER</h1>
-            <input
-              className="inputBox"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              type="text"
-              placeholder="Enter name"
-            />
-            <input
-              className="inputBox"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              type="text"
-              placeholder="Enter email"
-            />
-            <input
-              className="inputBox"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              type="password"
-              placeholder="Enter password"
-            />
-            <button
-              className="signupbutton"
-              type="button"
-              onClick={collectData}
-            >
-              SignUp
-            </button>
-          </div>
-        </div>
-      )}
-    </>
+    <div
+      className="min-h-screen flex items-center justify-center bg-gradient-to-r from-purple-400 via-pink-500 to-red-500"
+    >
+      <div className="bg-white p-8 rounded-lg shadow-lg w-96">
+        <h1 className="text-3xl font-bold  font-sans text-center mb-4">Register</h1>
+        <input
+          className="inputBox mb-4 px-4 py-2 rounded-lg border border-gray-300 w-full"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          type="text"
+          placeholder="Your Name"
+        />
+        <input
+          className="inputBox mb-4 px-4 py-2 rounded-lg border border-gray-300 w-full"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          type="email"
+          placeholder="Email Address"
+        />
+        <input
+          className="inputBox mb-4 px-4 py-2 rounded-lg border border-gray-300 w-full"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          type="password"
+          placeholder="Password"
+        />
+        <button
+          className="signupButton bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full w-full"
+          type="button"
+          onClick={collectData}
+        >
+          Sign Up
+        </button>
+      </div>
+    </div>
   );
 };
 
 export default Register;
+
+
+
