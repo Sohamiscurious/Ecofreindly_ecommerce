@@ -5,6 +5,7 @@ import Login from './components/Login';
 import NavBar from './components/NavBar';
 import PrivateComponent from './components/PrivateComponent'
 
+import ProductCards from './components/ProductCards';
 
 const App = () => {
   return (
