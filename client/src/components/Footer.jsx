@@ -3,6 +3,7 @@ import { mobile } from "../responsive";
 
 const Container = styled.div`
   display: flex;
+  background-color: black;
   ${mobile({ flexDirection: "column"})}
 `;
 
@@ -23,6 +24,7 @@ const Logo = styled.img`
 
 const Description = styled.p`
     margin: 20px 5px;
+    color: white;
 `;
 
 const SocialContainer= styled.div`
@@ -54,6 +56,7 @@ const Center = styled.div`
 
 const Title = styled.h3`
     margin-bottom: 30px;
+    color: white;
 
 `;
 
@@ -63,11 +66,13 @@ const List = styled.ul`
     list-style: none;
     display: flex;
     flex-wrap: wrap;
+    color: white;
 `;
 
 const ListItem = styled.li`
     width: 50%;
     margin-bottom: 10px;
+    color: white;
 `;
 
 const Right = styled.div`
@@ -76,12 +81,14 @@ const Right = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  color: white;
 `;
 
 const ContactItem = styled.div`
     margin-bottom: 20px;
     display: flex;
     align-content: center;
+    color: white;
 `;
 
 const Payment = styled.div `

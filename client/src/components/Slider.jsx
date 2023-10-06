@@ -9,6 +9,11 @@ const Container = styled.div`
   display: flex;
   position: relative;
   overflow: hidden;
+  background-image: url('bg.png');
+  background-size: cover  ;
+  
+  
+  
   ${mobile({ display:"none" })}
 `;
 
@@ -16,7 +21,7 @@ const Arrow = styled.div`
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  background-color: #fff7f7;
+  background-color: #2dff03;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -62,6 +67,7 @@ const InfoContainer = styled.div`
 
 const Title = styled.h1`
   font-size: 70px;
+  color: white;
 `;
 
 const Description = styled.p`
@@ -70,12 +76,15 @@ const Description = styled.p`
   font-size: 20px;
   font-weight: 500;
   letter-spacing: 3px;
+  color: white;
 `;
 const Button = styled.button`
   padding: 10px;
   font-size: 20px;
   border-color: transparent;
   cursor: pointer;
+  background-color: black;
+  color: white;
 `;
 
 const Slider = () => {
