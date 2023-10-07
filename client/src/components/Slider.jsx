@@ -2,6 +2,7 @@ import { useState } from "react";
 import { styled } from "styled-components";
 import { sliderItems } from "../data";
 import {mobile} from '../responsive'
+import {Link} from 'react-scroll'
 
 const Container = styled.div`
   width: 100%;
@@ -114,7 +115,17 @@ const Slider = () => {
               <Description>
                 {item.desc}
               </Description>
-              <Button>Shop Now</Button>
+              <Button>
+              <Link
+                to="target"
+                smooth={true}
+                spy={true}
+                offset={-10}
+                duration={500}
+              >
+                Shop Now
+              </Link>
+              </Button>
             </InfoContainer>
           </Slide>
         ))}
