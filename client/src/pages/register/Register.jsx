@@ -22,7 +22,7 @@ const Register = () => {
     setIsLoading(true);
     try {
       const result = await fetch(
-        "https://shopnest-backend.onrender.com/api/auth/register",
+        "http://localhost:5000/api/auth/register",
         {
           method: "post",
           body: JSON.stringify({ name, email, password }),

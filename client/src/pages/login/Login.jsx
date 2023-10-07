@@ -22,7 +22,7 @@
     const handleLogin = async () => {
       try {
         setIsLoading(true);
-        const result = await fetch("https://shopnest-backend.onrender.com/api/auth/login", {
+        const result = await fetch("http://localhost:5000/api/auth/login", {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
