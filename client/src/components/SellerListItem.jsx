@@ -65,7 +65,7 @@ export default function SellerListItem({ p_id, p_name, p_desc, p_img, p_price })
   return (
     <Product>
       <ProductDetail>
-        <Image src={p_img} />
+        <Image src={`https://source.unsplash.com/200x200/?${p_name}`} />
         <Details>
           <ProductName>
             Product: <b>{p_name}</b>
