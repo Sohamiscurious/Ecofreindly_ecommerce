@@ -80,7 +80,7 @@
                 type="button"
                 onClick={handleLogin}
               >
-                LOGIN UP
+                LOGIN
               </button>
             </div>
           </div>
