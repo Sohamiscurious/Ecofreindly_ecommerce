@@ -1,33 +1,20 @@
-const express = require("express");
+const express = require('express');
+const cors = require('cors');
+
+require('./models/config');
+require('./models/User')
+require('./models/Products')
+require('./models/imageDetails')
+
 const app = express();
-const mongoose = require("mongoose");
-const dotenv = require("dotenv");
-dotenv.config();
-const userRoute = require("./routes/user");
-const authRoute = require("./routes/auth");
-const productRoute = require("./routes/product");
-const cartRoute = require("./routes/cart");
-const orderRoute = require("./routes/order");
-const stripeRoute = require("./routes/stripe");
-const cors = require("cors");
-
-
-mongoose
-  .connect(process.env.MONGO_URL)
-  .then(() => console.log("DB Connection Successfull!"))
-  .catch((err) => {
-    console.log(err);
-  });
-
+app.use(express.json({ limit: '10mb' }));
 app.use(cors());
-app.use(express.json());
-app.use("/api/auth", authRoute);
-app.use("/api/users", userRoute);
-app.use("/api/products", productRoute);
-app.use("/api/carts", cartRoute);
-app.use("/api/orders", orderRoute);
-app.use("/api/checkout", stripeRoute);
+const PORT = process.env.PORT || 5000
 
-app.listen(process.env.PORT || 5000, () => {
-  console.log("Backend server is running!");
-});
+app.use('/api/auth', require('./routes/auth'));
+app.use('/api/products', require('./routes/products'));
+app.use('/api/image', require('./routes/images'));
+
+app.listen(PORT,()=>{
+    console.log("Connected to http://localhost:5000");
+})
