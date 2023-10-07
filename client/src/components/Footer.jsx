@@ -101,10 +101,8 @@ const Footer = () => {
       <Left>
         <Logo src="bird.png"></Logo>
         <Description>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod
-          praesentium adipisci quos necessitatibus rerum hic maiores excepturi
-          sapiente, delectus cumque esse vitae quis, asperiores quisquam vel
-          facere tenetur ex! Necessitatibus.
+        Join us at Shoplist, your dedicated marketplace for sustainable and eco -friendly products. 
+        Together, let's illuminate the path to a greener, more sustainable future.
         </Description>
         <SocialContainer>
           <SocialIcon>

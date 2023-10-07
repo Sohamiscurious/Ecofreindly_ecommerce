@@ -3,24 +3,24 @@ export const sliderItems = [
 
         id:1,
         img:"homepage.png",
-        title:"SUMMER SALE",
-        desc: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sed dicta repellat autem officiis cum modi cupiditate, numquam beatae non ipsam, repellendus sapiente quae placeat ut suscipit dolore doloremque repudiandae voluptas?",
+        title:"Eco-Conscious Selection",
+        desc: "Shoplist offers a curated selection of sustainable and eco-friendly products, making it easier for you to support ethical and environmentally responsible brands.",
         bg: "f5fafd",
     },
     {
 
         id:2,
         img:"homepage2.png",
-        title:"WINTER SALE",
-        desc: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sed dicta repellat autem officiis cum modi cupiditate, numquam beatae non ipsam, repellendus sapiente quae placeat ut suscipit dolore doloremque repudiandae voluptas?",
+        title:"Verified Quality",
+        desc: "We verify and rate products to ensure they meet our sustainability standards, providing you with confidence in your purchases.",
         bg: "fcf1ed",
     },
     {
 
         id:3,
         img:"homepage3.png",
-        title:"AUTUMN SALE",
-        desc: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sed dicta repellat autem officiis cum modi cupiditate, numquam beatae non ipsam, repellendus sapiente quae placeat ut suscipit dolore doloremque repudiandae voluptas?",
+        title:"Driving Positive Change",
+        desc: "By shopping on Shoplist, you contribute to the collective effort towards a more sustainable future, fostering responsible consumption habits and encouraging eco-friendly product offerings.",
         bg: "f5fafd",
     }
 ]
