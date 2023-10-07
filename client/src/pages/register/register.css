@@ -1,0 +1,53 @@
+/* register.css */
+
+/* Background Image (You can use the same background image as in login.css) */
+.registerContainer {
+    /* background-image: url('path_to_your_image.jpg'); */
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Login Box Styling */
+  .register {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+  }
+  
+  /* Login Title */
+  .register h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  /* Input Box Styling */
+  .inputBox {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+  }
+  
+  /* Login Button Styling (You can use the same class as in the Login component) */
+  .signupbutton {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 18px;
+  }
+  
+  .signupbutton:hover {
+    background-color: #0056b3;
+  }
+  
