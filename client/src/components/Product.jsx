@@ -25,6 +25,7 @@ const Container = styled.div`
   margin: 5px;
   
   height: 350px;
+  max-width: 350px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -34,9 +35,9 @@ const Container = styled.div`
   &:hover ${Info} {
     opacity: 1;
   }
-  @media (max-width: 1000px) {
+  @media (max-width: 1800px) {
      /* Change the height property to 'auto' on smaller screens */
-    flex-basis: calc(30% - 10px); /* Example: Two columns on screens <= 768px */
+    flex-basis: calc(30% - 40px); /* Example: Two columns on screens <= 768px */
     /* You can adjust the flex-basis value to control the number of columns */
   @media (max-width: 800px) {
      /* Change the height property to 'auto' on smaller screens */
@@ -60,6 +61,7 @@ const Image = styled.img`
   height: 100%; /* Ensure the image fits the container */
   z-index: 2;
   //box-sizing: border-box;
+  
 `;
 
 const IconContainer = styled.div`
