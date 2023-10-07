@@ -1,5 +1,6 @@
 import { styled } from "styled-components";
 import { mobile } from "../responsive";
+import { useState} from "react";
 
 const Container = styled.div`
   height: 60vh;
@@ -63,14 +64,15 @@ const Button = styled.button`
 `;
 
 const NewsLetter = () => {
+  const [Hola, setHola] = useState("")
   return (
     <Container>
       <Title>NEWSLETTER</Title>
       <Description>Get Timely Updates from Your Favorite Products</Description>
       <InputContainer>
-        <Input placeholder="Your Email" />
-        <Button>
-          <i className="fas fa-paper-plane"></i>
+        <Input placeholder="Your Email" type="email" value={Hola} onChange={(e) => setHola(e.target.value)}/>
+        <Button onClick={()=>setHola("")} > 
+          <i className="fas fa-paper-plane"></i> 
         </Button>
       </InputContainer>
     </Container>
