@@ -28,6 +28,7 @@ const App = () => {
           <Route path="/dashboard" element={<Seller />} />
           <Route path="/add-new-product" element={<AddNewProduct />} />
           <Route path="/news" element={<EcoFriendlyInfo/>} />
+          <Route path="/dashboard" element={<Seller/>} />
         </Routes>
       </Router>
     </>

@@ -10,7 +10,7 @@ const NavBar = () => {
   };
   return (
     <>
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <div className="container-fluid">
           <img className="logo" src="bird.png" />
           <a className="navbar-brand" href="/">
@@ -48,6 +48,11 @@ const NavBar = () => {
                 <li className="nav-item">
                   <Link className="nav-link" to="/news">
                     News
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link className="nav-link" to="/dashboard">
+                    Dashboard
                   </Link>
                 </li>
                 <li className="nav-item">
