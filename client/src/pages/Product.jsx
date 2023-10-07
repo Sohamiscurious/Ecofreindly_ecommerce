@@ -160,7 +160,7 @@ const Product = () => {
     <Container>
       <Wrapper>
         <ImgContainer>
-          <Image src={product.img} />
+          <Image src={product.product_image} />
         </ImgContainer>
         <InfoContainer>
           <Title>{product.title}</Title>
