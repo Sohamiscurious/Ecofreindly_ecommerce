@@ -81,4 +81,15 @@ router.get("/", async (req, res) => {
   }
 });
 
+//GET PRODUCTS BY USER ID
+router.get("/find-by-user/:userId", async (req, res) => {
+  try {
+    const userId = req.params.userId;
+    const products = await Product.find({ userId: userId });
+    res.status(200).json(products);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 module.exports = router;

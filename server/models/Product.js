@@ -11,13 +11,10 @@ const ProductSchema = new mongoose.Schema(
     quantity: { type: Number, required: true },
     product_description: { type: String, required: true },
     product_image: { type: String, required: true },
-    product_lifespan: { type: String, required: true },
     certifications: { type: Array },
     government_awards: { type: Array },
     materials: { type: Array },
-    material_sourcing: { type: String, required: true },
-    color: { type: Array },
-    inStock: { type: Boolean, default: true },
+    userID: { type: String, required: true }
   },
   { timestamps: true }
 );
