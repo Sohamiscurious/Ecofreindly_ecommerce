@@ -97,11 +97,11 @@ const ProductTitle = styled.h3`
 const Product = ({ item }) => {
   const getBackgroundColor = (score) => {
     if (score > 90) {
-      return 'gold';
+      return '#d4af3766';
     } else if (score > 60) {
-      return 'silver';
+      return '#D3D3D3';
     } else if (score > 40) {
-      return 'bronze';
+      return '#b8ae99';
     } else {
       return 'initial'; // Default background color if none of the conditions match
     }

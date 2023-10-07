@@ -1,51 +1,39 @@
 import axios from 'axios'; // Import axios
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 const Wrapper = styled.div``;
-const Heading = styled.h2`
-padding:2vh 2vw;
-font-weight:bold;
-`;
-
+const Heading = styled.h2``;
 const SubHeading = styled.h3`
   font-size: 20px;
-  font-weight:600;
-  margin-top: 50px;
-  margin-left: 20px;
-  margin-bottom: 30px;
+  margin-top: 20px;
 `;
 
 const Label = styled.label`
   font-weight: bold;
   margin-bottom: 5px;
-  margin: 1vh 10vw;
 `;
 
 const Input = styled.input`
-  width: 76%;
+  width: 100%;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
   margin-bottom: 10px;
-  margin:1vh 12vw;
 `;
 
 const TextArea = styled.textarea`
-  width: 76%;
+  width: 100%;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
   margin-bottom: 10px;
-  margin:1vh 12vw;
 `;
 
 const Button = styled.button`
   background-color: #007bff;
   color: #fff;
-  /* padding: 10px 20px; */
+  padding: 10px 20px;
   border: none;
-  margin: 10vh 30vw;
-  width: 0 40vw;
   border-radius: 4px;
   cursor: pointer;
   font-size: 16px;
@@ -57,51 +45,60 @@ const Form = styled.form`
 `;
 
 
-const AddNewProduct = ({ props }) => {
+const EditProduct = () => {
+    const id = window.location.pathname.split('/').pop();
+    const [product, setProduct] = useState({});
     const [formData, setFormData] = useState({
-        product_id: 11,
-        product_name: "Recycled Glass Tumbler",
-        price: 12,
-        quantity: 20,
-        category: "Utensils",
-        product_description: "Tumbler made from recycled glass materials",
-        product_image: "glass_tumbler.jpg",
-        materials: ["Recycled"],
-        product_lifespan: "3 years",
-        certifications: [],
-        government_awards: [],
-        material_sourcing: 0,
-        packaging_eco_friendliness: 0,
-        waste_generation: 0,
-        product_lifespan: 0,
-        recyclability: 0,
-        energy_efficiency: 0,
-        end_of_life_disposal: 0,
-        material_type: 0,
-        dispose_time: 0,
+        biodegradable_score: '',
+        carbon_footprint_score: '',
+        category: '',
+        certifications: [], // Provide an empty array as the default value
+        government_awards: [], // Provide an empty array as the default value
+        materials: [], // Provide an empty array as the default value
+        price: '',
+        product_description: '',
+        product_id: '',
+        product_image: '',
+        product_name: '',
+        quantity: '',
+        userId: '',
+        _id: '',
     });
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const res = await axios.get(
+                    `http://localhost:5000/api/products/find/${id}`
+                );
+                console.log(res.data);
+                setProduct(res.data);
+                setFormData(res.data);
+            } catch (err) {
+                // Handle errors here
+            }
+        };
 
+        fetchData(); // Call the fetchData function when the component mounts
+    }, [id]);
+
+
+    // Update an existing product
+    const handleSubmit = async () => {
         try {
-            // Create a new object that includes formData
-            const requestData = {
-                ...formData,
-            };
-
-            // Make an HTTP POST request to your Express route
-            const response = await axios.post('http://localhost:5000/api/products/create', requestData);
+            // Make an HTTP PUT request to your Express route with the updated data
+            const response = await axios.put(`http://localhost:5000/api/products/${id}`, formData);
 
             // Handle the response as needed
-            console.log('Product added successfully:', response.data);
+            console.log('Product updated successfully:', response.data);
             // You can also redirect or display a success message to the user
         } catch (error) {
-            console.error('Error adding product:', error);
+            console.error('Error updating product:', error);
             // Handle the error, display an error message, or take appropriate action
         }
     };
 
+    // Call the updateProduct function when you want to update the product
 
     return (
         <Wrapper>
@@ -187,7 +184,7 @@ const AddNewProduct = ({ props }) => {
                         type="text"
                         id="materials"
                         name="materials"
-                        value={formData.materials.join(', ')}
+                        value={formData.materials ? formData.materials.join(', ') : " "}
                         onChange={(e) => setFormData({ ...formData, materials: e.target.value.split(', ') })}
                     />
                 </div>
@@ -200,7 +197,7 @@ const AddNewProduct = ({ props }) => {
                         type="text"
                         id="certifications"
                         name="certifications"
-                        value={formData.certifications.join(', ')}
+                        value={formData.certifications ? formData.certifications.join(', ') : ""}
                         onChange={(e) => setFormData({ ...formData, certifications: e.target.value.split(', ') })}
                     />
                 </div>
@@ -213,58 +210,18 @@ const AddNewProduct = ({ props }) => {
                         id="government_awards"
                         placeholder='seperate links by comma'
                         name="government_awards"
-                        value={formData.government_awards.join(', ')}
+                        value={formData.government_awards ? formData.government_awards.join(', ') : ""}
                         onChange={(e) => setFormData({ ...formData, government_awards: e.target.value.split(', ') })}
                     />
                 </div>
 
-                <SubHeading>Carbon Footprint</SubHeading>
 
                 <div>
-                    <Label htmlFor="material_sourcing">material_sourcing</Label>
-                    <Input placeholder="3" type="number" min="0" max="5" name="material_sourcing" />
-                </div>
-                <div>
-                    <Label htmlFor="packaging_eco_friendliness">packaging_eco_friendliness</Label>
-                    <Input placeholder="3" type="number" min="0" max="5" name="packaging_eco_friendliness" />
-                </div>
-                <div>
-                    <Label htmlFor="waste_generation">waste_generation</Label>
-                    <Input placeholder="3" type="number" min="0" max="5" name="waste_generation" />
-                </div>
-                <div>
-                    <Label htmlFor="product_lifespan">product_lifespan</Label>
-                    <Input placeholder="3" type="number" min="0" max="5" name="product_lifespan" />
-                </div>
-                <div>
-                    <Label htmlFor="recyclability">recyclability</Label>
-                    <Input placeholder="3" type="number" min="0" max="5" name="recyclability" />
-                </div>
-                <div>
-                    <Label htmlFor="energy_efficiency">energy_efficiency</Label>
-                    <Input placeholder="3" type="number" min="0" max="5" name="energy_efficiency" />
-                </div>
-                <div>
-                    <Label htmlFor="end_of_life_disposal">end_of_life_disposal</Label>
-                    <Input placeholder="3" type="number" min="0" max="5" name="end_of_life_disposal" />
-                </div>
-
-                <SubHeading>Biodegradable</SubHeading>
-                <div>
-                    <Label htmlFor="material_type">material_type</Label>
-                    <Input placeholder="3" type="number" min="0" max="5" name="material_type" />
-                </div>
-                <div>
-                    <Label htmlFor="dispose_time">dispose_time</Label>
-                    <Input placeholder="3" type="number" min="0" max="5" name="dispose_time" />
-                </div>
-
-                <div>
-                    <Button type="submit">Add Product</Button>
+                    <Button type="submit">Update Product</Button>
                 </div>
             </Form>
         </Wrapper>
     );
 };
 
-export default AddNewProduct;
+export default EditProduct;

@@ -1,5 +1,7 @@
 import styled from "styled-components";
-
+import React from "react";
+import { Router } from "react-router";
+import { Link } from "react-router-dom";
 const Product = styled.div`
   display: flex;
   justify-content: space-between;
@@ -60,28 +62,30 @@ const ProcuctDescription = styled.p`
 `;
 
 export default function SellerListItem({ p_id, p_name, p_desc, p_img, p_price }) {
-    return (
-        <Product>
-            <ProductDetail>
-                <Image src={p_img} />
-                <Details>
-                    <ProductName>
-                        Product: <b>{p_name}</b>
-                    </ProductName>
-                    <ProcuctDescription>
-                        {p_desc}
-                    </ProcuctDescription>
-                    <ProductId>
-                        <b>ID:</b> {p_id}
-                    </ProductId>
-                </Details>
-            </ProductDetail>
-            <PriceDetail>
-                <ProductPrice>$ {p_price}</ProductPrice>
-                <EditButton>
-                    Edit
-                </EditButton>
-            </PriceDetail>
-        </Product>
-    )
+  return (
+    <Product>
+      <ProductDetail>
+        <Image src={p_img} />
+        <Details>
+          <ProductName>
+            Product: <b>{p_name}</b>
+          </ProductName>
+          <ProcuctDescription>
+            {p_desc}
+          </ProcuctDescription>
+          <ProductId>
+            <b>ID:</b> {p_id}
+          </ProductId>
+        </Details>
+      </ProductDetail>
+      <PriceDetail>
+        <ProductPrice>$ {p_price}</ProductPrice>
+        <EditButton >
+          <a href={"/edit-product/" + p_id}>
+            Edit Page
+          </a>
+        </EditButton>
+      </PriceDetail>
+    </Product>
+  )
 }

@@ -39,6 +39,10 @@ const Button = styled.button`
   letter-spacing: 3px;
   color: black;
   background-color:white;
+  &:hover{
+    color: white;
+  background-color:black;
+  }
   
 `;
 
