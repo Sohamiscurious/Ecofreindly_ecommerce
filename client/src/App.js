@@ -8,9 +8,10 @@ import Cart from './pages/Cart';
 import Product from './pages/Product';
 import Register from './pages/register/Register';
 import Login from './pages/login/Login';
-
+import Information from './pages/information/EcoFriendlyInfo'
 import Seller from "./pages/Seller";
 import AddNewProduct from './pages/AddNewProduct';
+import EcoFriendlyInfo from './pages/information/EcoFriendlyInfo';
 
 const App = () => {
   return (
@@ -26,6 +27,7 @@ const App = () => {
           <Route path="/register" element={<Register />} />
           <Route path="/dashboard" element={<Seller />} />
           <Route path="/add-new-product" element={<AddNewProduct />} />
+          <Route path="/news" element={<EcoFriendlyInfo/>} />
         </Routes>
       </Router>
     </>

@@ -1,0 +1,110 @@
+/* Apply a basic reset to remove default margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Set a background color and font styles for the body */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f8f1; /* Light green background */
+    color: #333;
+}
+
+/* Style the header section */
+.head {
+    background-color: #2e7d32; /* Dark green background */
+    color: #fff;
+    text-align: center;
+    
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 15px;
+}
+
+.head h2 {
+    padding: 5px;
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.head p {
+    font-size: 18px; /* Larger font size */
+}
+
+/* Media Query for screens with a maximum width of 768px */
+@media (max-width: 768px) {
+    .head p {
+        margin-left: 10px; /* Add left margin */
+        margin-right: 10px; /* Add right margin */
+    }
+}
+
+/* Style the container */
+.container {
+    align-items: center;
+    background-image: url('point_bronze.png'); /* Path to your background image */
+    /* Scale the image to cover the container */
+    background-repeat: no-repeat; /* Prevent image repetition */
+    background-position: center center;
+    overflow: hidden;
+    background-color: #fff;
+    margin: 20px auto;
+    padding: 20px;
+    max-width: 800px;
+    max-height: 800px;
+    border-radius: 10px; /* Slightly rounded corners */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Style the list */
+ul#info-list {
+    list-style-type: none; /* Remove default list bullets */
+    align-items:center;
+    
+}
+
+.info-item {
+    
+    margin-bottom: 10px;
+    padding: 15px; /* More spacing around each info item */
+    background-color: #dcedc8; /* Light green background */
+    border: 1px solid #c5e1a5; /* Light green border */
+    border-radius: 10px; /* Rounded corners */
+    transition: background-color 0.3s ease;
+    position: relative; /* To position the greenery icon */
+}
+
+.info-item:hover {
+    background-color: #c5e1a5; /* Slightly darker green on hover */
+}
+
+/* Style the title of each info item */
+.info-title {
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #2e7d32; /* Dark green text color */
+}
+
+/* Greenery icon */
+.greenery-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    color: #2e7d32; /* Dark green color */
+}
+
+/* Additional decorative elements (optional) */
+/* Leaf decoration */
+.leaf {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: #2e7d32; /* Dark green */
+    clip-path: polygon(100% 50%, 50% 100%, 0% 50%, 50% 0%);
+    transform: rotate(45deg);
+    top: 5px;
+    left: 5px;
+}
