@@ -1,53 +1,67 @@
-/* register.css */
-
-/* Background Image (You can use the same background image as in login.css) */
+/* Base styles for registration form */
 .registerContainer {
-    /* background-image: url('path_to_your_image.jpg'); */
-    background-size: cover;
-    background-position: center;
-    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 80vh;
+    background: linear-gradient(145deg, #6bcf9f, #65a3d3,#5ae658); /* Light green background color */
   }
   
-  /* Login Box Styling */
   .register {
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: #ffffff;
     padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+    width: 300px;
+  }
+  
+  h1 {
+    font-size: 28px;
     text-align: center;
-  }
-  
-  /* Login Title */
-  .register h1 {
-    font-size: 24px;
     margin-bottom: 20px;
+    color: #008000; /* Green title color */
   }
   
-  /* Input Box Styling */
   .inputBox {
     width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    outline: none;
+    padding: 12px;
+    margin-bottom: 16px;
+    border: 2px solid #008000; /* Green border for input fields */
+    border-radius: 5px;
+    font-size: 16px;
   }
   
-  /* Login Button Styling (You can use the same class as in the Login component) */
+  .inputBox:focus {
+    outline: none;
+    border-color: #006400; /* Darker green border on focus */
+  }
+  
   .signupbutton {
-    background-color: #007bff;
+    width: 100%;
+    padding: 12px;
+    background-color: #008000; /* Green button background color */
     color: #fff;
     border: none;
-    border-radius: 4px;
-    padding: 10px 20px;
+    border-radius: 5px;
     cursor: pointer;
     font-size: 18px;
+    transition: background-color 0.3s;
   }
   
   .signupbutton:hover {
-    background-color: #0056b3;
+    background-color: #006400; /* Darker green on hover */
+  }
+  
+  /* Media queries for responsiveness */
+  @media screen and (max-width: 600px) {
+    .register {
+      width: 80%;
+    }
+  }
+  
+  @media screen and (max-width: 400px) {
+    .register {
+      width: 90%;
+    }
   }
   

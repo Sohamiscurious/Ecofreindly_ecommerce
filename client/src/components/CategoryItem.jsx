@@ -38,6 +38,7 @@ const Button = styled.button`
   font-weight: 1000;
   letter-spacing: 3px;
   color: black;
+  background-color:white;
   
 `;
 
