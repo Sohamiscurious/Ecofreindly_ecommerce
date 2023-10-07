@@ -1,0 +1,67 @@
+/* Base styles for registration form */
+.registerContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    background: linear-gradient(145deg, #6bcf9f, #65a3d3,#5ae658); /* Light green background color */
+  }
+  
+  .register {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+    width: 300px;
+  }
+  
+  h1 {
+    font-size: 28px;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #008000; /* Green title color */
+  }
+  
+  .inputBox {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 16px;
+    border: 2px solid #008000; /* Green border for input fields */
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  .inputBox:focus {
+    outline: none;
+    border-color: #006400; /* Darker green border on focus */
+  }
+  
+  .signupbutton {
+    width: 100%;
+    padding: 12px;
+    background-color: #008000; /* Green button background color */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s;
+  }
+  
+  .signupbutton:hover {
+    background-color: #006400; /* Darker green on hover */
+  }
+  
+  /* Media queries for responsiveness */
+  @media screen and (max-width: 600px) {
+    .register {
+      width: 80%;
+    }
+  }
+  
+  @media screen and (max-width: 400px) {
+    .register {
+      width: 90%;
+    }
+  }
+  
