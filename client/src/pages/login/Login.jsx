@@ -60,7 +60,7 @@
         ) : (
           <div className="loginContainer">
             <div className="login">
-              <h1 className="head">LOGIN</h1>
+              <h1>LOGIN</h1>
               <input
                 className="inputBox" // Use CSS classes defined in Login.css
                 type="text"

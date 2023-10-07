@@ -64,7 +64,7 @@ function Seller() {
         const getProducts = async () => {
             try {
                 const res = await axios.get(
-                    `http://localhost:5000/api/products/find-by-user/${id}`
+                    `http://localhost:5000/api/products/find-by-user/your_user_id`
                 );
                 setProducts(res.data);
             } catch (err) { }
