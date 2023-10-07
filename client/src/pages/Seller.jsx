@@ -23,19 +23,54 @@ const TopButton = styled.button`
 `;
 
 function Seller() {
-    const userId = "your_user_id";
+
+    const [authId, setAuthId] = useState();
+    const id = JSON.parse(localStorage.getItem("user")).authToken;
+    const getUser = async () => {
+        try {
+            if (localStorage.getItem("user")) {
+                const id = JSON.parse(localStorage.getItem("user")).authToken;
+                const getUserData = await fetch(
+                    "https://shopnest-backend.onrender.com/api/auth/getUser",
+                    {
+                        method: "get",
+                        headers: {
+                            "auth-token": `${id}`,
+                        },
+                    }
+                );
+                const data = await getUserData.json();
+                setAuthId(data._id);
+            } else {
+                console.log("user not found");
+            }
+        } catch (error) {
+            console.error(error);
+            alert("An error occurred while logging in.");
+        }
+    };
+
+    useEffect(() => {
+        getUser();
+        setAuthId("your_user_id")
+
+    }, []);
+
+    console.log(authId)
+
+
     const [products, setProducts] = useState([]);
     useEffect(() => {
         const getProducts = async () => {
             try {
                 const res = await axios.get(
-                    `http://localhost:5000/api/products/find-by-user/${userId}`
+                    `http://localhost:5000/api/products/find-by-user/${id}`
                 );
                 setProducts(res.data);
             } catch (err) { }
         };
         getProducts();
-    }, [userId]);
+    }, [id]);
     return (
         <>
             <form action="/add-new-product">

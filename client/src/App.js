@@ -1,17 +1,17 @@
 import React from 'react';
-import Home from './pages/Home';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import NavBar from './components/NavBar';
+import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import './App.css';
-import ProductList from './pages/ProductList';
-import Cart from './pages/Cart';
-import Product from './pages/Product';
-import Register from './pages/register/Register';
-import Login from './pages/login/Login';
-import Information from './pages/information/EcoFriendlyInfo'
-import Seller from "./pages/Seller";
+import NavBar from './components/NavBar';
 import AddNewProduct from './pages/AddNewProduct';
+import Cart from './pages/Cart';
+import EditProduct from './pages/EditProduct';
+import Home from './pages/Home';
+import Product from './pages/Product';
+import ProductList from './pages/ProductList';
+import Seller from "./pages/Seller";
 import EcoFriendlyInfo from './pages/information/EcoFriendlyInfo';
+import Login from './pages/login/Login';
+import Register from './pages/register/Register';
 
 const App = () => {
   return (
@@ -29,6 +29,7 @@ const App = () => {
           <Route path="/add-new-product" element={<AddNewProduct />} />
           <Route path="/news" element={<EcoFriendlyInfo/>} />
           <Route path="/dashboard" element={<Seller/>} />
+          <Route path="/edit-product/:id" element={<EditProduct />} />
         </Routes>
       </Router>
     </>
