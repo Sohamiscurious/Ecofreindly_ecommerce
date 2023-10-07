@@ -13,7 +13,7 @@ const Container = styled.div`
   background-image: url('https://mir-s3-cdn-cf.behance.net/project_modules/2800_opt_1/f2b29f171836573.6475a7f76eb19.jpg');
   background-repeat: no-repeat;
   background-size: cover;
-  min-height: 100vh;
+  
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -21,14 +21,21 @@ const Container = styled.div`
 `;
 
 const Wrapper = styled.div`
-  max-width: 1000px;
+  
   margin: 0 auto;
   padding: 50px;
   display: flex;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
 
   ${mobile({ padding: "20px", flexDirection: "column" })}
+  @media (max-width: 768px) {
+    /* Add your CSS rules for screens smaller than 768px here */
+    /* For example: */
+    padding: 10px;
+    flex-direction: column;
+  }
 `;
 
 const ImgContainer = styled.div`
@@ -36,14 +43,15 @@ const ImgContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100%;
-  width: 100%;
+  height: 80%;
+  
+  
 `;
 
 const Image = styled.img`
-  height: 100%;
   background-size: cover;
   border: 1px solid #ddd;
+  width: 40vw;
   border-radius: 5px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
 `;
@@ -53,7 +61,7 @@ const InfoContainer = styled.div`
   padding: 20px;
   background-color: rgba(255, 255, 255, 0.9);
   border-radius: 5px;
-  max-width: 500px;
+  width: 40vw;
 `;
 
 const Title = styled.h1`
@@ -148,6 +156,46 @@ const Amount = styled.span`
   margin: 0px 8px;
   font-size: 18px;
 `;
+const Certifications = styled.div`
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-left: 50px;
+  flex-direction:column;
+`;
+
+const Certification = styled.div`
+  background-color: #f2f2f2;
+  border-radius: 5px;
+  padding: 5px 10px;
+  margin-right: 10px;
+  margin-bottom: 5px;
+  font-weight: 300;
+  font-size: 18px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+ 
+`;
+const Score = styled.div`
+  background-color: #f2f2f2;
+  border-radius: 5px;
+  padding: 5px 10px;
+  margin-right: 10px;
+  margin-bottom: 5px;
+  font-weight: 300;
+  flex-direction:column;
+ 
+`;
+const Score1 = styled.div`
+  background-color: #f2f2f2;
+  border-radius: 5px;
+  padding: 5px 10px;
+  margin-right: 10px;
+  margin-bottom: 5px;
+  font-weight: 300;
+  flex-direction:column;
+ 
+`;
 
 const Button = styled.button`
   /* padding: 0 30px; */
@@ -218,32 +266,33 @@ const Product = () => {
           <Image src={product.product_image} alt={product.title} />
         </ImgContainer>
         <InfoContainer>
-          <Title>{product.title}</Title>
-          <Desc>{product.desc}</Desc>
+          <Title>{product.product_name}</Title>
+          <Desc>{product.product_description}</Desc>
           <Price>$ {product.price}</Price>
 
           <FilterContainer>
             <Filter>
-              <FilterTitle>Certifications</FilterTitle>
-              {product.color?.map((c) => (
-                <FilterColor
-                  color={c}
-                  key={c}
-                  onClick={() => setColor(c)}
-                />
+              <Score1>
+              
+              <Desc>Certification:</Desc>
+              
+              
+              {product.certifications && product.certifications.map((certification, index) => (
+                <Certification key={index}>{certification}</Certification>
               ))}
+
+            
+              </Score1>
+            
             </Filter>
             <Filter>
-              <FilterTitle>Size</FilterTitle>
-              <FilterSize
-                onChange={(e) => setSize(e.target.value)}
-                value={size}
-              >
-                <FilterSizeOption>Select Size</FilterSizeOption>
-                {product.size?.map((s) => (
-                  <FilterSizeOption key={s}>{s}</FilterSizeOption>
-                ))}
-              </FilterSize>
+              
+              
+            <Score>
+            <Desc>Carbon Score</Desc>
+            <Certification>{product.carbon_footprint_score} </Certification>
+              
+            </Score>
             </Filter>
           </FilterContainer>
           <AddContainer>
