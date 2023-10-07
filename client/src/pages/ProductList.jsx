@@ -47,30 +47,25 @@ const ProductList = () => {
     <Container>
       <Title>{cat}</Title>
       <FilterContainer>
-        <Filter>
+        {/* <Filter>
           <FilterText>Filter Products:</FilterText>
-          <Select name="color" onChange={handleFilters}>
-            <Option disabled>Color</Option>
-            <Option>white</Option>
-            <Option>black</Option>
-            <Option>red</Option>
-            <Option>blue</Option>
-            <Option>yellow</Option>
-            <Option>green</Option>
+          <Select name="carbon_footprint_score" onChange={handleFilters}>
+            <Option disabled>Carbon Footprint Score</Option>
+            <Option>Best</Option>
+            <Option>Good</Option>
+            <Option>Average</Option>
           </Select>
-          <Select name="size" onChange={handleFilters}>
-            <Option disabled>Size</Option>
-            <Option>XS</Option>
-            <Option>S</Option>
-            <Option>M</Option>
-            <Option>L</Option>
-            <Option>XL</Option>
+          <Select name="biodegradable_score " onChange={handleFilters}>
+            <Option disabled>Is Biodegradable?</Option>
+            <Option>Highly Biodegradable</Option>
+            <Option>Biodegradable</Option>
+            <Option>Semi-Biodegradable</Option>
+            <Option>Non-Biodegradable</Option>
           </Select>
-        </Filter>
+        </Filter> */}
         <Filter>
           <FilterText>Sort Products:</FilterText>
           <Select onChange={(e) => setSort(e.target.value)}>
-            <Option value="newest">Newest</Option>
             <Option value="asc">Price (asc)</Option>
             <Option value="desc">Price (desc)</Option>
           </Select>

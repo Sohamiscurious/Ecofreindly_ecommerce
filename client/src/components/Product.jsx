@@ -1,3 +1,4 @@
+import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
@@ -13,6 +14,8 @@ const Info = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
+  text-align: center;
   transition: all 0.5s ease;
   cursor: pointer;
 `;
@@ -20,7 +23,7 @@ const Info = styled.div`
 const Container = styled.div`
   flex: 1;
   margin: 5px;
-  min-width: 280px;
+  
   height: 350px;
   display: flex;
   align-items: center;
@@ -30,6 +33,17 @@ const Container = styled.div`
 
   &:hover ${Info} {
     opacity: 1;
+  }
+  @media (max-width: 1000px) {
+     /* Change the height property to 'auto' on smaller screens */
+    flex-basis: calc(30% - 10px); /* Example: Two columns on screens <= 768px */
+    /* You can adjust the flex-basis value to control the number of columns */
+  @media (max-width: 800px) {
+     /* Change the height property to 'auto' on smaller screens */
+    flex-basis: calc(80% - 10px); /* Example: Two columns on screens <= 768px */
+    /* You can adjust the flex-basis value to control the number of columns */
+
+    }
   }
 `;
 
@@ -42,8 +56,17 @@ const Circle = styled.div`
 `;
 
 const Image = styled.img`
-  height: 75%;
+  width: 100%;
+  height: 100%; /* Ensure the image fits the container */
   z-index: 2;
+  //box-sizing: border-box;
+`;
+
+const IconContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 10px;
 `;
 
 const Icon = styled.div`
@@ -62,23 +85,38 @@ const Icon = styled.div`
   }
 `;
 
+const ProductInfo = styled.div`
+  color: white; /* Set text color to white */
+`;
+
+const ProductTitle = styled.h3`
+  color: white; /* Set text color to white */
+`;
+
 const Product = ({ item }) => {
   return (
     <Container>
       <Circle />
-      <Image src={item.img} />
+      <Image src={item.product_image} alt={item.product_name} />
       <Info>
-        <Icon>
-          <Link to={`/product/${item._id}`}>
-            <i class="fa-solid fa-cart-shopping"></i>
-          </Link>
-        </Icon>
-        <Icon>
-          <i class="fa-solid fa-magnifying-glass"></i>
-        </Icon>
-        <Icon>
-          <i class="fa-regular fa-heart"></i>
-        </Icon>
+        <IconContainer>
+          <Icon>
+            <Link to={`/product/?id=${item._id}`}>
+              <i className="fa-solid fa-cart-shopping"></i>
+            </Link>
+          </Icon>
+          <Icon>
+            <i className="fa-regular fa-heart"></i>
+          </Icon>
+        </IconContainer>
+        <ProductInfo>
+          <ProductTitle>{item.product_name}</ProductTitle>
+          <p>Category: {item.category}</p>
+          <p>Price: ${item.price}</p>
+          <p>Biodegradable Score: {item.biodegradable_score}</p>
+          <p>Carbon Footprint Score: {item.carbon_footprint_score}</p>
+          
+        </ProductInfo>
       </Info>
     </Container>
   );

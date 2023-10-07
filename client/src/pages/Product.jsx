@@ -1,5 +1,9 @@
-import styled from "styled-components";
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
+import { styled } from "styled-components";
 import Footer from "../components/Footer";
+import NewsLetter from "../components/NewsLetter";
 import { mobile } from "../responsive";
 import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
@@ -7,8 +11,12 @@ import { publicRequest } from "../requestMethods";
 import { addProduct } from "../redux/cartRedux";
 import { useDispatch } from "react-redux";
 
-const Container = styled.div``;
-
+const Container = styled.div`
+  /* background-image: url('bg3.png');
+  background-repeat: no-repeat;
+  background-size: cover; */
+  background-color: peachpuff;
+`;
 const Wrapper = styled.div`
   padding: 50px;
   display: flex;
@@ -34,6 +42,7 @@ const InfoContainer = styled.div`
 
 const Title = styled.h1`
   font-weight: 200;
+  
 `;
 
 const Desc = styled.p`
@@ -157,6 +166,7 @@ const Product = () => {
           <Title>{product.title}</Title>
           <Desc>{product.desc}</Desc>
           <Price>$ {product.price}</Price>
+
           <FilterContainer>
             <Filter>
               <FilterTitle>Color</FilterTitle>
@@ -178,6 +188,7 @@ const Product = () => {
               <i class="fa-solid fa-minus" onClick={() => handleQuantity("dec")} ></i>
               <Amount>1</Amount>
               <i class="fa-solid fa-plus" onClick={() => handleQuantity("inc")} ></i>
+
             </AmountContainer>
             <Button  onClick={handleClick}>ADD TO CART</Button>
           </AddContainer>

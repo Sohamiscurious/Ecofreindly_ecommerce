@@ -9,20 +9,21 @@ import Product from './components/Product'
 import Register from './pages/register/Register'
 import Login from './pages/login/Login'
 
+
 const App = () => {
   return (
     <>
       <Router>
-        <NavBar/>
+        <NavBar />
         <Routes>
-          <Route exact path="/" element={<Home/>}/>
-          <Route path="/products/:category" element={<ProductList/>}/>
-          <Route path="/products/:id" element={<Product/>}/>
-          <Route path="/cart" element={<Cart/>}/>
-          <Route path="/login" element={<Login/>}/>
-          <Route path="/register" element={<Register/>}/>
-          <Route path="/product" element={<Product/>}/>
-          <Route path="/cart" element={<Cart/>}/>
+          <Route exact path="/" element={<Home />} />
+          <Route path="/products/:category" element={<ProductList />} />
+          <Route path="/products/:id" element={<Product />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/product" element={<Product />} />
+          <Route path="/cart" element={<Cart />} />
         </Routes>
       </Router>
     </>
