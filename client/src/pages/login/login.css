@@ -1,7 +1,5 @@
 /* Base styles for containers */
-.loginContainer,
-.registerContainer,
-.addProduct {
+.loginContainer{
   margin-top: calc(5vh);
   box-sizing: border-box;
   display: flex;
@@ -12,9 +10,7 @@
 }
 
 /* Common styles for forms */
-.login,
-.register,
-.addProduct {
+.login{
   color: white;
   display: flex;
   flex-direction: column;
@@ -27,9 +23,7 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
-/* Form titles on hover */
-.login h1:hover,
-.register h1:hover {
+.login h1:hover {
   transform: scale(1.05);
 }
 
