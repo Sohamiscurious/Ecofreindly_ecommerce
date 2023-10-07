@@ -57,28 +57,8 @@ router.get("/find/:id", async (req, res) => {
 
 //GET ALL PRODUCTS
 router.get("/", async (req, res) => {
-  const qNew = true;
-  const qCategory = req.query.category;
-
-  try {
-    let products;
-
-    if (qNew) {
-      products = await Product.find({ category: qCategory }).limit(20);
-    } else if (qCategory) {
-      products = await Product.find({
-        categories: {
-          $in: [qCategory],
-        },
-      });
-    } else {
-      products = await Product.find();
-    }
-
-    res.status(200).json(products);
-  } catch (err) {
-    res.status(500).json(err);
-  }
+  const data = await Product.find();
+  res.json(data);
 });
 
 //GET PRODUCTS BY USER ID
