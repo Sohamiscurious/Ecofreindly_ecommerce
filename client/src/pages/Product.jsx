@@ -36,14 +36,11 @@ const ImgContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-   height: 100%;
+  height: 100%;
   width: 100%;
-  
 `;
 
 const Image = styled.img`
-  /* width: 100%;
-  max-height: 400px; */
   height: 100%;
   background-size: cover;
   border: 1px solid #ddd;
@@ -166,6 +163,17 @@ const Button = styled.button`
     color: black;
   }
 `;
+const PopUp = styled.div`
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 20px;
+  border-radius: 5px;
+  z-index: 999;
+`;
 
 const Product = () => {
   const { id } = useParams();
@@ -173,6 +181,7 @@ const Product = () => {
   const [quantity, setQuantity] = useState(1);
   const [color, setColor] = useState("");
   const [size, setSize] = useState("");
+  const [showPopup, setShowPopup] = useState(false); // State to manage the pop-up
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -195,10 +204,15 @@ const Product = () => {
 
   const handleClick = () => {
     dispatch(addProduct({ ...product, quantity, color, size }));
+    setShowPopup(true); // Show the pop-up when the button is clicked
+    setTimeout(() => {
+      setShowPopup(false); // Hide the pop-up after a delay (e.g., 2 seconds)
+    }, 2000); // Adjust the delay duration as needed
   };
 
   return (
     <Container>
+      {showPopup && <PopUp>Added to cart</PopUp>}
       <Wrapper>
         <ImgContainer>
           <Image src={product.product_image} alt={product.title} />
