@@ -13,52 +13,64 @@ const Container = styled.div`
 `;
 
 const Title = styled.h1`
-  font-size: 70px;
-  font-weight: 500;
-  letter-spacing: 3px;
+  font-size: 48px;
+  font-weight: 600;
+  letter-spacing: 2px;
   margin-bottom: 20px;
-  ${mobile({textAlign: "center"})}
+  color: #333;
+  text-align: center;
+  ${mobile({ fontSize: "36px" })}
 `;
 
 const Description = styled.div`
-    font-size: 24px;
-    font-weight: 300;
-    margin-bottom: 20px;
-    ${mobile({textAlign: "center"})}
+  font-size: 18px;
+  font-weight: 400;
+  margin-bottom: 20px;
+  color: #666;
+  text-align: center;
 `;
 
 const InputContainer = styled.div`
-    background-color: white;
-    width:50%;
-    height: 40px;
-    display: flex;
-    justify-content: space-between;
-    border: 1px solid lightgray;
-    ${mobile({width:"80%"})}
+  background-color: #fff;
+  width: 50%;
+  max-width: 400px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Added to create space between input and button */
+  border: 1px solid #ccc;
+  border-radius: 25px;
+  overflow: hidden;
+  margin-bottom: 20px; /* Added margin to create space between input and button */
+  ${mobile({ width: "80%" })}
 `;
 
 const Input = styled.input`
-    border: none;
-    flex: 8;
-    padding-left: 20px;
+  border: none;
+  flex: 0.7;
+  padding-left: 20px;
+  font-size: 16px;
+  outline: none;
+  color: #333;
 `;
 
 const Button = styled.button`
-    flex: 1;
-    border: none;
-    background-color: teal;
-    color: white;
+  flex: 0.3;
+  border: none;
+  background-color: #007bff;
+  color: #fff;
+  cursor: pointer;
 `;
 
 const NewsLetter = () => {
   return (
     <Container>
-      <Title>NEWS LETTER</Title>
-      <Description>Get Timely Updates From Your Favourite Products</Description>
+      <Title>NEWSLETTER</Title>
+      <Description>Get Timely Updates from Your Favorite Products</Description>
       <InputContainer>
         <Input placeholder="Your Email" />
         <Button>
-          <i class="fa-regular fa-paper-plane"></i>
+          <i className="fas fa-paper-plane"></i>
         </Button>
       </InputContainer>
     </Container>
