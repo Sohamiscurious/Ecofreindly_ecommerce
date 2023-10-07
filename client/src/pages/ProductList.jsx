@@ -2,6 +2,8 @@ import { styled } from "styled-components";
 import Products from "../components/Products";
 import NewsLetter from "../components/NewsLetter";
 import Footer from "../components/Footer";
+import { useLocation } from "react-router-dom";
+import { useState } from "react";
 
 const Container = styled.div``;
 const FilterContainer = styled.div`
@@ -28,48 +30,48 @@ const Select = styled.select`
 const Option = styled.option``;
 
 const ProductList = () => {
+  const location = useLocation();
+  const cat = location.pathname.split("/")[2];
+  const [filters, setFilters] = useState({});
+  const [sort, setSort] = useState("newest");
+
+  const handleFilters = (e) => {
+    const value = e.target.value;
+    setFilters({
+      ...filters,
+      [e.target.name]: value,
+    });
+  };
+
   return (
     <Container>
-      <Title>Dresses</Title>
+      <Title>{cat}</Title>
       <FilterContainer>
-        <Filter>
+        {/* <Filter>
           <FilterText>Filter Products:</FilterText>
-          <Select>
-            <Option disabled selected>
-              Color
-            </Option>
-            <Option>White</Option>
-            <Option>Black</Option>
-            <Option>Red</Option>
-            <Option>Blue</Option>
-            <Option>Yellow</Option>
-            <Option>Green</Option>
+          <Select name="carbon_footprint_score" onChange={handleFilters}>
+            <Option disabled>Carbon Footprint Score</Option>
+            <Option>Best</Option>
+            <Option>Good</Option>
+            <Option>Average</Option>
           </Select>
-          <Select>
-            <Option disabled selected>
-              Size
-            </Option>
-            <Option>XXL</Option>
-            <Option>XL</Option>
-            <Option>L</Option>
-            <Option>M</Option>
-            <Option>S</Option>
-            <Option>XS</Option>
+          <Select name="biodegradable_score " onChange={handleFilters}>
+            <Option disabled>Is Biodegradable?</Option>
+            <Option>Highly Biodegradable</Option>
+            <Option>Biodegradable</Option>
+            <Option>Semi-Biodegradable</Option>
+            <Option>Non-Biodegradable</Option>
           </Select>
-          
-        </Filter>
+        </Filter> */}
         <Filter>
           <FilterText>Sort Products:</FilterText>
-          <Select>
-            <Option disabled selected>
-              Newest
-            </Option>
-            <Option>Price (asc)</Option>
-            <Option>Price (desc)</Option>
+          <Select onChange={(e) => setSort(e.target.value)}>
+            <Option value="asc">Price (asc)</Option>
+            <Option value="desc">Price (desc)</Option>
           </Select>
         </Filter>
       </FilterContainer>
-      <Products />
+      <Products cat={cat} filters={filters} sort={sort} />
       <NewsLetter />
       <Footer />
     </Container>
