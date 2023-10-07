@@ -6,7 +6,7 @@ const NavBar = () => {
   const navigate = useNavigate();
   const logout = () => {
     localStorage.clear();
-    navigate("/signup");
+    navigate("/register");
   };
   return (
     <>
