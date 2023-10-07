@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { styled } from "styled-components";
 import Footer from "../components/Footer";
@@ -10,120 +10,165 @@ import NewsLetter from "../components/NewsLetter";
 import { useParams } from "react-router-dom";
 
 const Container = styled.div`
-  /* background-image: url('bg3.png');
+  background-image: url('https://mir-s3-cdn-cf.behance.net/project_modules/2800_opt_1/f2b29f171836573.6475a7f76eb19.jpg');
   background-repeat: no-repeat;
-  background-size: cover; */
-  background-color: peachpuff;
+  background-size: cover;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
 `;
+
 const Wrapper = styled.div`
+  max-width: 1000px;
+  margin: 0 auto;
   padding: 50px;
   display: flex;
-  ${mobile({ padding: "10px", flexDirection: "column" })}
+  justify-content: center;
+  align-items: center;
+
+  ${mobile({ padding: "20px", flexDirection: "column" })}
 `;
 
 const ImgContainer = styled.div`
   flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+   height: 100%;
+  width: 100%;
+  
 `;
 
 const Image = styled.img`
-  width: 100%;
-  height: 90vh;
-  object-fit: cover;
-  ${mobile({ height: "40vh" })}
+  /* width: 100%;
+  max-height: 400px; */
+  height: 100%;
+  background-size: cover;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
 `;
 
 const InfoContainer = styled.div`
   flex: 1;
-  padding: 0px 50px;
-  ${mobile({ padding: "10px" })}
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 5px;
+  max-width: 500px;
 `;
 
 const Title = styled.h1`
-  font-weight: 200;
-  
+  font-weight: 600;
+  font-size: 28px;
+  margin-bottom: 10px;
 `;
 
 const Desc = styled.p`
-  margin: 20px 0px;
+  font-size: 16px;
+  margin-bottom: 20px;
+  color: #555;
 `;
 
 const Price = styled.span`
-  font-weight: 100;
-  font-size: 40px;
+  font-weight: 600;
+  font-size: 36px;
+  color: teal;
+  margin-bottom: 20px;
+  display: block;
 `;
 
 const FilterContainer = styled.div`
-  width: 50%;
-  margin: 30px 0px;
+  width: 100%;
+  margin: 40px 0px;
   display: flex;
   justify-content: space-between;
-  ${mobile({ width: "100%" })}
+  ${mobile({ flexDirection: "column" })}
 `;
 
 const Filter = styled.div`
   display: flex;
   align-items: center;
+  margin-top: 10px;
+
+  ${mobile({ justifyContent: "space-between" })}
 `;
 
 const FilterTitle = styled.span`
-  font-size: 20px;
-  font-weight: 200;
+  font-size: 18px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  margin-right: 10px;
 `;
 
 const FilterColor = styled.div`
-  width: 20px;
-  height: 20px;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
   background-color: ${(props) => props.color};
-  margin: 0px 5px;
+  margin: 0px 8px;
   cursor: pointer;
 `;
 
 const FilterSize = styled.select`
   margin-left: 10px;
-  padding: 5px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+  font-size: 16px;
 `;
 
 const FilterSizeOption = styled.option``;
 
 const AddContainer = styled.div`
-  width: 50%;
+  width: 100%;
+  /* margin-top: 40px;
+  padding: 20px; */
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 5px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  ${mobile({ width: "100%" })}
+  justify-content: space-around;
+  ${mobile({ flexDirection: "column" })}
 `;
 
 const AmountContainer = styled.div`
   display: flex;
   align-items: center;
-  font-weight: 700;
+  font-weight: 600;
+  
 `;
 
 const Amount = styled.span`
-  width: 30px;
-  height: 30px;
-  border-radius: 10px;
+  width: 36px;
+  height: 36px;
+  border-radius: 18px;
   border: 1px solid teal;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0px 5px;
+  margin: 0px 8px;
+  font-size: 18px;
 `;
+
 const Button = styled.button`
-  padding: 15px;
+  /* padding: 0 30px; */
   border: 2px solid teal;
-  background-color: white;
+  background-color: black;
+  color: white;
   cursor: pointer;
-  font-weight: 500;
+  /* font-weight: 600; */
+  font-size: 20px;
 
   &:hover {
     background-color: #f8f4f4;
+    color: black;
   }
 `;
 
 const Product = () => {
-  const {id}=useParams();
+  const { id } = useParams();
   const [product, setProduct] = useState({});
   const [quantity, setQuantity] = useState(1);
   const [color, setColor] = useState("");
@@ -149,15 +194,14 @@ const Product = () => {
   };
 
   const handleClick = () => {
-    dispatch(
-      addProduct({ ...product, quantity, color, size })
-    );
+    dispatch(addProduct({ ...product, quantity, color, size }));
   };
+
   return (
     <Container>
       <Wrapper>
         <ImgContainer>
-          <Image src={product.product_image} />
+          <Image src={product.product_image} alt={product.title} />
         </ImgContainer>
         <InfoContainer>
           <Title>{product.title}</Title>
@@ -166,14 +210,22 @@ const Product = () => {
 
           <FilterContainer>
             <Filter>
-              <FilterTitle>Color</FilterTitle>
+              <FilterTitle>Certifications</FilterTitle>
               {product.color?.map((c) => (
-                <FilterColor color={c} key={c} onClick={() => setColor(c)} />
+                <FilterColor
+                  color={c}
+                  key={c}
+                  onClick={() => setColor(c)}
+                />
               ))}
             </Filter>
             <Filter>
               <FilterTitle>Size</FilterTitle>
-              <FilterSize onChange={(e) => setSize(e.target.value)}>
+              <FilterSize
+                onChange={(e) => setSize(e.target.value)}
+                value={size}
+              >
+                <FilterSizeOption>Select Size</FilterSizeOption>
                 {product.size?.map((s) => (
                   <FilterSizeOption key={s}>{s}</FilterSizeOption>
                 ))}
@@ -182,12 +234,17 @@ const Product = () => {
           </FilterContainer>
           <AddContainer>
             <AmountContainer>
-              <i class="fa-solid fa-minus" onClick={() => handleQuantity("dec")} ></i>
-              <Amount>1</Amount>
-              <i class="fa-solid fa-plus" onClick={() => handleQuantity("inc")} ></i>
-
+              <i
+                className="fa-solid fa-minus"
+                onClick={() => handleQuantity("dec")}
+              ></i>
+              <Amount>{quantity}</Amount>
+              <i
+                className="fa-solid fa-plus"
+                onClick={() => handleQuantity("inc")}
+              ></i>
             </AmountContainer>
-            <Button  onClick={handleClick}>ADD TO CART</Button>
+            <Button onClick={handleClick}>ADD TO CART</Button>
           </AddContainer>
         </InfoContainer>
       </Wrapper>

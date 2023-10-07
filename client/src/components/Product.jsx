@@ -19,6 +19,7 @@ const Info = styled.div`
   cursor: pointer;
 `;
 
+
 const Container = styled.div`
   flex: 1;
   margin: 5px;
@@ -28,27 +29,25 @@ const Container = styled.div`
   align-items: center;
   justify-content: center;
   background-color: #f5fbfd;
+  
   position: relative;
 
-  &:hover ${Info}{
+
+  &:hover ${Info} {
     opacity: 1;
   }
   
   @media (max-width: 1800px) {
-     /* Change the height property to 'auto' on smaller screens */
-    flex-basis: calc(30% - 40px); /* Example: Two columns on screens <= 768px */
-    /* You can adjust the flex-basis value to control the number of columns */
+    flex-basis: calc(30% - 40px); /* Example: Three columns on screens <= 1800px */
   }
+
   @media (max-width: 800px) {
-     /* Change the height property to 'auto' on smaller screens */
-    flex-basis: calc(50% - 20px); /* Example: Two columns on screens <= 768px */
-    /* You can adjust the flex-basis value to control the number of columns */
-    }
-    @media (max-width: 480px) {
-     /* Change the height property to 'auto' on smaller screens */
-    flex-basis: calc(100% - 10px); /* Example: Two columns on screens <= 768px */
-    /* You can adjust the flex-basis value to control the number of columns */
-    }
+    flex-basis: calc(50% - 20px); /* Example: Two columns on screens <= 800px */
+  }
+
+  @media (max-width: 480px) {
+    flex-basis: calc(100% - 10px); /* Single column on screens <= 480px */
+  }
 `;
 
 const Circle = styled.div`
@@ -96,9 +95,20 @@ const ProductTitle = styled.h3`
 `;
 
 const Product = ({ item }) => {
-  console.log(item);
+  const getBackgroundColor = (score) => {
+    if (score > 90) {
+      return 'gold';
+    } else if (score > 60) {
+      return 'silver';
+    } else if (score > 40) {
+      return 'bronze';
+    } else {
+      return 'initial'; // Default background color if none of the conditions match
+    }
+  };
+  const backgroundColor = getBackgroundColor(item.carbon_footprint_score)
   return (
-    <Container>
+    <Container style={{ backgroundColor }}>
       <Circle />
       <Image src={item.product_image} alt={item.product_name} />
       <Info>
