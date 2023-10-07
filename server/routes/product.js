@@ -48,8 +48,8 @@ router.delete("/:id", verifyTokenAndAdmin, async (req, res) => {
 //GET PRODUCT
 router.get("/find/:id", async (req, res) => {
   try {
-    const product = await Product.findById(req.params.id);
-    res.status(200).json(product);
+    const data = await Product.findById(req.params.id);
+    res.status(200).json(data);
   } catch (err) {
     res.status(500).json(err);
   }
@@ -60,6 +60,16 @@ router.get("/", async (req, res) => {
   const data = await Product.find();
   res.json(data);
 });
+
+//GET PRODUCTS BY CATEGORY
+router.get("/:key", async (req,res)=>{
+  let data = await Product.find({
+    "$or": [
+        { "category": { $regex: req.params.key } },
+    ]
+  });
+  res.json(data);
+})
 
 //GET PRODUCTS BY USER ID
 router.get("/find-by-user/:userId", async (req, res) => {

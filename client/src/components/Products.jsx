@@ -9,10 +9,9 @@ const Container = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-
 `;
 
-const Products = ({ cat, filters, sort }) => {
+const Products = ({ cat, filters, sortPrice, sortBD, sortCE }) => {
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
 
@@ -21,7 +20,7 @@ const Products = ({ cat, filters, sort }) => {
       try {
         const res = await axios.get(
           cat
-            ? `http://localhost:5000/api/products?category=${cat}`
+            ? `http://localhost:5000/api/products/${cat}`
             : "http://localhost:5000/api/products"
         );
         setProducts(res.data);
@@ -66,20 +65,42 @@ const Products = ({ cat, filters, sort }) => {
 
 
   useEffect(() => {
-    if (sort === "newest") {
-      setFilteredProducts((prev) =>
-        [...prev].sort((a, b) => a.createdAt - b.createdAt)
-      );
-    } else if (sort === "asc") {
+    if (sortPrice === "price_asc") {
       setFilteredProducts((prev) =>
         [...prev].sort((a, b) => a.price - b.price)
       );
-    } else {
+    } else if (sortPrice === "price_desc"){
       setFilteredProducts((prev) =>
         [...prev].sort((a, b) => b.price - a.price)
       );
     }
-  }, [sort]);
+  }, [sortPrice, sortCE, sortBD]);
+
+  useEffect(() => {
+    if (sortCE === "ce_asc"){
+      setFilteredProducts((prev) =>
+        [...prev].sort((a, b) => a.carbon_footprint_score - b.carbon_footprint_score)
+      );
+    }
+    else if (sortCE === "ce_desc"){
+      setFilteredProducts((prev) =>
+        [...prev].sort((a, b) =>  b.carbon_footprint_score- a.carbon_footprint_score)
+      );
+    }
+  }, [sortPrice, sortCE, sortBD]);
+
+  useEffect(() => {
+    if (sortBD === "bd_asc"){
+      setFilteredProducts((prev) =>
+        [...prev].sort((a, b) => a.biodegradable_score - b.biodegradable_score)
+      );
+    }
+    else if (sortBD === "bd_desc"){
+      setFilteredProducts((prev) =>
+        [...prev].sort((a, b) =>  b.biodegradable_score- a.biodegradable_score)
+      );
+    }
+  }, [sortBD]);
 
   return (
     <Container>

@@ -1,15 +1,13 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import { styled } from "styled-components";
 import Footer from "../components/Footer";
-import NewsLetter from "../components/NewsLetter";
-import { mobile } from "../responsive";
-import { useLocation } from "react-router-dom";
-import { useEffect, useState } from "react";
-import { publicRequest } from "../requestMethods";
 import { addProduct } from "../redux/cartRedux";
-import { useDispatch } from "react-redux";
+import { publicRequest } from "../requestMethods";
+import { mobile } from "../responsive";
+import { useLocation } from "react-router";
+import NewsLetter from "../components/NewsLetter";
+import { useParams } from "react-router-dom";
 
 const Container = styled.div`
   /* background-image: url('bg3.png');
@@ -125,8 +123,7 @@ const Button = styled.button`
 `;
 
 const Product = () => {
-  const location = useLocation();
-  const id = location.pathname.split("/")[2];
+  const {id}=useParams();
   const [product, setProduct] = useState({});
   const [quantity, setQuantity] = useState(1);
   const [color, setColor] = useState("");
@@ -136,7 +133,7 @@ const Product = () => {
   useEffect(() => {
     const getProduct = async () => {
       try {
-        const res = await publicRequest.get("/products/find/" + id);
+        const res = await publicRequest.get(`/products/find/${id}`);
         setProduct(res.data);
       } catch {}
     };
@@ -194,7 +191,7 @@ const Product = () => {
           </AddContainer>
         </InfoContainer>
       </Wrapper>
-      <Newsletter />
+      <NewsLetter />
       <Footer />
     </Container>
   );

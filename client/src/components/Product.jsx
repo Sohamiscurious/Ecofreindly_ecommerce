@@ -15,7 +15,6 @@ const Info = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  text-align: center;
   transition: all 0.5s ease;
   cursor: pointer;
 `;
@@ -23,29 +22,33 @@ const Info = styled.div`
 const Container = styled.div`
   flex: 1;
   margin: 5px;
-  
+  min-width: 280px;
   height: 350px;
-  max-width: 350px;
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: #f5fbfd;
   position: relative;
 
-  &:hover ${Info} {
+  &:hover ${Info}{
     opacity: 1;
   }
+  
   @media (max-width: 1800px) {
      /* Change the height property to 'auto' on smaller screens */
     flex-basis: calc(30% - 40px); /* Example: Two columns on screens <= 768px */
     /* You can adjust the flex-basis value to control the number of columns */
+  }
   @media (max-width: 800px) {
      /* Change the height property to 'auto' on smaller screens */
-    flex-basis: calc(80% - 10px); /* Example: Two columns on screens <= 768px */
+    flex-basis: calc(50% - 20px); /* Example: Two columns on screens <= 768px */
     /* You can adjust the flex-basis value to control the number of columns */
-
     }
-  }
+    @media (max-width: 480px) {
+     /* Change the height property to 'auto' on smaller screens */
+    flex-basis: calc(100% - 10px); /* Example: Two columns on screens <= 768px */
+    /* You can adjust the flex-basis value to control the number of columns */
+    }
 `;
 
 const Circle = styled.div`
@@ -57,18 +60,8 @@ const Circle = styled.div`
 `;
 
 const Image = styled.img`
-  width: 100%;
-  height: 100%; /* Ensure the image fits the container */
+  height: 75%;
   z-index: 2;
-  //box-sizing: border-box;
-  
-`;
-
-const IconContainer = styled.div`
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  margin-bottom: 10px;
 `;
 
 const Icon = styled.div`
@@ -87,6 +80,13 @@ const Icon = styled.div`
   }
 `;
 
+const IconContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 10px;
+`;
+
 const ProductInfo = styled.div`
   color: white; /* Set text color to white */
 `;
@@ -96,6 +96,7 @@ const ProductTitle = styled.h3`
 `;
 
 const Product = ({ item }) => {
+  console.log(item);
   return (
     <Container>
       <Circle />
@@ -103,7 +104,7 @@ const Product = ({ item }) => {
       <Info>
         <IconContainer>
           <Icon>
-            <Link to={`/product/?id=${item._id}`}>
+            <Link to={`/product/${item._id}`}>
               <i className="fa-solid fa-cart-shopping"></i>
             </Link>
           </Icon>

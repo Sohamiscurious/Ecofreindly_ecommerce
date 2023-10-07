@@ -8,7 +8,7 @@ const Container = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  background-image: url('bg2.png');
+  background-image: url('./bg2.png');
   background-size: cover;
 `;
 

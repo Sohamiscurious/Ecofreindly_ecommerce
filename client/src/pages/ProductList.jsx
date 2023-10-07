@@ -33,7 +33,9 @@ const ProductList = () => {
   const location = useLocation();
   const cat = location.pathname.split("/")[2];
   const [filters, setFilters] = useState({});
-  const [sort, setSort] = useState("newest");
+  const [sortPrice, setSortPrice] = useState("price_asc");
+  const [sortCE, setSortCE] = useState("ce_asc");
+  const [sortBD, setSortBD] = useState("bd_asc");
 
   const handleFilters = (e) => {
     const value = e.target.value;
@@ -65,13 +67,21 @@ const ProductList = () => {
         </Filter> */}
         <Filter>
           <FilterText>Sort Products:</FilterText>
-          <Select onChange={(e) => setSort(e.target.value)}>
-            <Option value="asc">Price (asc)</Option>
-            <Option value="desc">Price (desc)</Option>
+          <Select onChange={(e) => setSortPrice(e.target.value)}>
+            <Option value="price_asc">Price (asc)</Option>
+            <Option value="price_desc">Price (desc)</Option>
+          </Select>
+          <Select onChange={(e) => setSortCE(e.target.value)}>
+            <Option value="ce_asc">CarbonEmissiom Score (asc)</Option>
+            <Option value="ce_desc">CarbonEmissiom Score (desc)</Option>
+          </Select>
+          <Select onChange={(e) => setSortBD(e.target.value)}>
+            <Option value="bd_asc">Biodegradibility Score (asc)</Option>
+            <Option value="bd_desc">Biodegradibility Score (desc)</Option>
           </Select>
         </Filter>
       </FilterContainer>
-      <Products cat={cat} filters={filters} sort={sort} />
+      <Products cat={cat} filters={filters} sortPrice={sortPrice} sortCE={sortCE} sortBD={sortBD}/>
       <NewsLetter />
       <Footer />
     </Container>
