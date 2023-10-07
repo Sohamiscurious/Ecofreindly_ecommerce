@@ -34,13 +34,13 @@ export const CategoriesData = [
     },
     {
         id: 2,
-        img: "categoryImage2.jpg",
+        img: "category2.jpg",
         title: "T-SHIRTS",
         cat: "Soaps"
     },
     {
         id: 3,
-        img: "categoryImage3.jpg",
+        img: "category3.jpg",
         title: "Pants",
         cat: "Utensils"
 
