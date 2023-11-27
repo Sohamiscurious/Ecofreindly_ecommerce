@@ -8,6 +8,7 @@ Members
 
 ShopNest
 Made with HTML,CSS and Tailwind CSS, React and MongoDB in 24 Hours Hackathon
+
 Key Features:
 
 Biodegradability Tracking: Our system meticulously tracks the biodegradability factor of products listed on our platform. This empowers users to make environmentally responsible choices.
